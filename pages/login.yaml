@@ -1,0 +1,101 @@
+id: login
+type: PageHeaderMenu
+properties:
+  title: Login
+layout:
+  contentJustify: center # Center the contents of the page.
+areas:
+  content:
+    align: middle
+    blocks:
+      - id: content_card
+        type: Card
+        properties:
+          style:
+            background: none
+        layout:
+          size: 400 # Set the size of the card so it does not fill the full screen.
+          contentGutter: 16 # Make a 16px gap between all blocks in this card.
+        blocks:
+          - id: page_heading
+            type: Title
+            properties:
+              content: Faça login na sua conta # Change the title on the page.
+              level: 3 # Make the title a little smaller (an html `<h3>`).
+          - id: userName
+            type: TextInput
+            properties:
+              placeholder: E-mail
+              inputStyle:
+                border: 2px solid rgb(0,0,0)
+                border-radius: 8px;
+              label:
+                disabled: true
+          - id: password
+            type: PasswordInput
+            properties:
+              placeholder: Senha
+              inputStyle:
+                border: 2px solid rgb(0,0,0)
+                border-radius: 8px;
+              label:
+                disabled: true
+          - id: block_id
+            type: Span
+            blocks:
+              - id: login_account
+                type: Paragraph
+                properties:
+                  content: Ainda não tem uma conta?
+                layout:
+                  span: 12
+              - id: login_register
+                type: Paragraph
+                properties:
+                  content: Crie a sua agora
+                  style:
+                    font-weight: bold
+                layout:
+                  span: 12
+          - id: login_submit
+            type: Button
+            properties:
+              title: Fazer login
+              block: true
+              type: default
+              color: rgb(0 255 148)
+              style:
+                font-weight: bold
+            requests:
+              - id: login
+                type: AxiosHttp
+                connectionId: api
+                properties:
+                  url: /user/v1/login
+                  method: post
+                  data:
+                    userName:
+                      _state: userName
+                    password:
+                      _state: password
+            events:
+              onClick:
+                - id: login
+                  type: Request
+                  params: login
+                - id: link_to_add
+                  type: Link
+                  params:
+                    pageId: add
+      - id: block_id
+        type: Img
+        properties:
+          src: http://sicredi-frontend-experiment.s3-website.us-east-2.amazonaws.com/assets/images/key.svg
+        layout:
+          size: auto
+          align: middle
+        style:
+          padding: 50px
+  footer:
+    blocks:
+      - _ref: footer.yaml

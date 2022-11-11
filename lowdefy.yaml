@@ -1,0 +1,44 @@
+lowdefy: 4.0.0-alpha.22
+name: Lowdefy starter
+
+menus:
+  - id: default
+    links:
+      - id: explore
+        type: MenuLink
+        properties:
+          title: EXPLORAR
+        pageId: explore
+      - id: about
+        type: MenuLink
+        properties:
+          title: SOBRE
+        pageId: about
+      - id: how-works
+        type: MenuLink
+        properties:
+          title: COMO FUNCIONA
+        pageId: how-works
+      - id: register
+        type: MenuLink
+        properties:
+          title: CADASTRE-SE
+        pageId: register
+      - id: login
+        type: MenuLink
+        properties:
+          title: LOGIN
+        pageId: login
+pages:
+  - _ref: pages/explore.yaml
+  - _ref: pages/about.yaml
+  - _ref: pages/how-works.yaml
+  - _ref: pages/register.yaml
+  - _ref: pages/login.yaml
+  - _ref: pages/add.yaml
+
+connections:
+  - id: api
+    type: AxiosHttp
+    properties:
+      baseURL: https://mezwahnghz.us-east-2.awsapprunner.com/api

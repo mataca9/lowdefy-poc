@@ -1,0 +1,207 @@
+id: add
+type: PageHeaderMenu
+properties:
+  title: Criar
+layout:
+  contentJustify: center # Center the contents of the page.
+areas:
+  content:
+    blocks:
+      - id: content_card
+        type: Card
+        layout:
+          size: 500 # Set the size of the card so it does not fill the full screen.
+          contentGutter: 16 # Make a 16px gap between all blocks in this card.
+          contentJustify: center
+        properties:
+          style:
+            background: none
+        blocks:
+          - id: page_heading
+            type: Title
+            properties:
+              content: Crie seu produto # Change the title on the page.
+              level: 3 # Make the title a little smaller (an html `<h3>`).
+            style:
+              text-align: center
+          - id: steps
+            type: Box
+            layout:
+              contentJustify: space-between
+              size: 500
+            properties:
+              style:
+                margin-bottom: 48px
+            areas:
+              content:
+                justify: space-between
+                blocks:
+                  - id: step-1
+                    type: Box
+                    layout:
+                      size: auto
+                    properties:
+                      content: Passo 1
+                      style:
+                        border: 2px solid
+                        border-radius: 500px
+                        padding: 20px
+                        height: 60px
+                        font-weight: 700
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                  - id: sep-1
+                    type: Box
+                    layout:
+                      size: auto
+                      align: middle
+                    properties:
+                      style:
+                        border: 3px solid
+                        height: 0px
+                        width: 40px
+                  - id: step-2
+                    type: Box
+                    layout:
+                      size: auto
+                    properties:
+                      content: 2
+                      style:
+                        border: 2px solid
+                        border-radius: 50%
+                        padding: 20px
+                        height: 60px
+                        width: 60px
+                        font-weight: 700
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                  - id: sep-2
+                    type: Box
+                    layout:
+                      size: auto
+                      align: middle
+                    properties:
+                      style:
+                        border: 3px solid
+                        height: 0px
+                        width: 40px
+                  - id: step-3
+                    type: Box
+                    layout:
+                      size: auto
+                    properties:
+                      content: 3
+                      style:
+                        border: 2px solid
+                        border-radius: 50%
+                        padding: 20px
+                        height: 60px
+                        width: 60px
+                        font-weight: 700
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                  - id: sep-3
+                    type: Box
+                    layout:
+                      size: auto
+                      align: middle
+                    properties:
+                      style:
+                        border: 3px solid
+                        height: 0px;
+                        width: 40px
+                  - id: step-4
+                    type: Box
+                    layout:
+                      size: auto
+                    properties:
+                      content: 4
+                      style:
+                        border: 2px solid
+                        border-radius: 50%
+                        padding: 20px
+                        height: 60px
+                        width: 60px
+                        font-weight: 700
+                        display: flex
+                        justify-content: center
+                        align-items: center
+          - id: product-type-label
+            type: Html
+            properties:
+              html: |
+                <h3 style="color: #000; font-weight: 700;">Qual tipo do seu produto?*</h3>
+              style:
+                text-align: center
+          - id: productTypeInput
+            type: RadioSelector
+            layout:
+              size: auto
+            properties:
+              color: "#00ff94;"
+              label:
+                colon: false
+                disabled: true
+              options:
+                - Phygital
+          - id: category-label
+            type: Html
+            properties:
+              html: |
+                <h3 style="color: #000; font-weight: 700; padding-top: 20px; border-top: 1px solid #ccc;">Em qual categoria ele se encaixa?*</h3>
+              style:
+                text-align: center
+          - id: categoryInput
+            type: RadioSelector
+            layout:
+              size: auto
+            properties:
+              color: "#00ff94;"
+              label:
+                colon: false
+                disabled: true
+              options:
+                - Arte
+                - Moda e acessórios
+                - Decoração
+          - id: sell-mode-label
+            type: Html
+            properties:
+              html: |
+                <h3 style="color: #000; font-weight: 700; padding-top: 20px; border-top: 1px solid #ccc;">Qual o modo de venda?*</h3>
+              style:
+                text-align: center
+          - id: sellModeInput
+            type: RadioSelector
+            layout:
+              size: auto
+            properties:
+              color: "#00ff94;"
+              label:
+                colon: false
+                disabled: true
+              options:
+                - Preço fixo
+          - id: next-content
+            type: Box
+            areas:
+              content:
+                justify: center
+                blocks:
+                  - id: login_submit
+                    type: Button
+                    layout:
+                      size: auto
+                    properties:
+                      title: Próximo
+                      block: true
+                      type: default
+                      color: rgb(0 255 148)
+                      style:
+                        font-weight: bold
+  footer:
+    blocks:
+      - _ref: footer.yaml
